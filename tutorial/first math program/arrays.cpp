@@ -7,8 +7,8 @@ int main() {
 
     // almost as in java, just need to put the [] next to the name
     // needs to set a size too
-    // iterating works the same way as in java [i] or for each
-    // size of array to stop in an iterative for looü
+    // iterating works the same way as in java [i] or for each (exact)
+    // size of array to stop in an iterative for loop
     // explained below
     int prices[3];
 
