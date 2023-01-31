@@ -3,12 +3,12 @@
 
 using namespace std;
 
-int calcWaysForDelPrime(int primeNum);
-bool checkForPrime(int primeNum);
-int removeOneDigit(int primeNum, int index);
+long calcWaysForDelPrime(long primeNum);
+bool checkForPrime(long primeNum);
+long removeOneDigit(long primeNum, int index);
 
 int main() {
-    int prime;
+    long prime;
     clock_t start, end;
 
     cout << "Prime num: ";
@@ -25,16 +25,16 @@ int main() {
     return 0;
 }
 
-int calcWaysForDelPrime(int primeNum) {
+long calcWaysForDelPrime(long primeNum) {
     int ways = 0;
     if (primeNum < 10 && checkForPrime(primeNum)) {
         ways++;
-        cout << endl;
+        // cout << endl;
     } else {
         for (int i = 0; i < to_string(primeNum).length(); i++) {
-            int temp = removeOneDigit(primeNum, i);
+            long temp = removeOneDigit(primeNum, i);
             if (checkForPrime(temp)) {
-                cout << temp << endl;
+                // cout << temp << endl;
                 ways += calcWaysForDelPrime(temp);
             }
         }
@@ -43,7 +43,7 @@ int calcWaysForDelPrime(int primeNum) {
 }
 
 // is a little slow, could use a mathematical algorithm to remove certain digits
-int removeOneDigit(int primeNum, int index) {
+long removeOneDigit(long primeNum, int index) {
     // turning the int into a string
     string temp = to_string(primeNum);
     
@@ -52,13 +52,13 @@ int removeOneDigit(int primeNum, int index) {
     return stoi(temp);
 }
 
-bool checkForPrime(int primeNum) {
+bool checkForPrime(long primeNum) {
     if(primeNum == 2) {
         return true;
     } else if (primeNum % 2 == 0) {
         return false;
     }
-    for (int i = 3; i < primeNum; i++)
+    for (long i = 3; i < primeNum; i++)
     {
         if (primeNum % i == 0) {
             return false;
